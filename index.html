@@ -1,0 +1,1222 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>100 Soal Pilihan Ganda Pramuka Level 2 - Slideshow Otomatis</title>
+  <style>
+    :root{
+      --brand:#8a2be2; /* ungu sesuai permintaan */
+      --bg:#f4f4f9;
+      --fg:#333;
+      --card:#fff;
+      --muted:#999;
+      --border:#e3e3ec;
+    }
+    *{box-sizing:border-box}
+    body{font-family: Arial, system-ui, -apple-system, Segoe UI, Roboto, 'Helvetica Neue', Ubuntu, 'Noto Sans', sans-serif; background:var(--bg); color:var(--fg); margin:0}
+    header{
+      position:sticky; top:0; z-index:50; backdrop-filter:saturate(180%) blur(6px);
+      background:linear-gradient(0deg,rgba(244,244,249,.75),rgba(244,244,249,.95));
+      border-bottom:1px solid var(--border);
+    }
+    .toolbar{display:flex; flex-wrap:wrap; align-items:center; gap:.5rem; padding:.75rem 1rem}
+    .toolbar h1{font-size:1rem; margin:0; color:var(--brand); font-weight:700}
+    .spacer{flex:1}
+    button, select, input[type="number"]{
+      appearance:none; border:1px solid var(--border); background:#fff; color:#222; border-radius:10px; padding:.5rem .75rem; font-size:.9rem; line-height:1; box-shadow:0 1px 2px rgba(0,0,0,.04);
+    }
+    button{cursor:pointer}
+    button.primary{background:var(--brand); color:#fff; border-color:transparent}
+    button.ghost{background:transparent}
+    button:disabled{opacity:.5; cursor:not-allowed}
+    label{font-size:.8rem; color:#555}
+
+    .progress-wrap{padding:.25rem 1rem 1rem}
+    .progress-bar{height:8px; width:100%; background:#eaeaf3; border-radius:999px; overflow:hidden}
+    .progress{height:100%; width:0%; background:var(--brand); transition:width .25s linear}
+    .timers{display:flex; justify-content:space-between; font-size:.8rem; color:#555; margin-top:.35rem}
+
+    main{padding:20px}
+    .slide{background:var(--card); border:1px solid #ddd; border-radius:12px; padding:28px; box-shadow:0 6px 16px rgba(0,0,0,.06); margin:0 auto 20px; max-width:1100px; display:none}
+    .slide.active{display:block}
+    h2{color:var(--brand); border-bottom:2px solid var(--brand); padding-bottom:10px; margin-top:0}
+    .grid-container{display:grid; grid-template-columns:1fr 1fr; gap:30px}
+    .question{margin-bottom:22px; padding-right:12px}
+    .question strong{color:#444}
+    .options{list-style-type: upper-alpha; padding-left: 20px;}
+    .options li{margin-bottom:6px}
+    .slide-footer{text-align:right; color:var(--muted); font-size:.9em; margin-top:10px}
+
+    footer{position:sticky; bottom:0; z-index:40; background:linear-gradient(180deg,rgba(244,244,249,.85),rgba(244,244,249,.98)); border-top:1px solid var(--border)}
+    .foot{display:flex; align-items:center; justify-content:center; gap:.75rem; padding:.6rem 1rem; font-size:.9rem; color:#666}
+
+    /* responsif */
+    @media (max-width:900px){
+      .grid-container{grid-template-columns:1fr}
+      .toolbar{gap:.4rem}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="toolbar" role="region" aria-label="Kontrol slideshow">
+      <h1>100 Soal Pramuka (Level Sulit)</h1>
+      <div class="spacer"></div>
+      <button id="prevBtn" title="Sebelumnya">⟨ Sebelumnya</button>
+      <button id="playPauseBtn" class="primary" title="Jeda / Putar">⏸ Jeda</button>
+      <button id="nextBtn" title="Selanjutnya">Selanjutnya ⟩</button>
+      <label for="slideSelect">Slide:</label>
+      <select id="slideSelect" title="Lompat ke slide"></select>
+      <label for="durationInput">Durasi/slide (detik):</label>
+      <input id="durationInput" type="number" min="10" step="5" value="120" style="width:90px" />
+      <button id="resetTimerBtn" class="ghost" title="Ulangi hitung mundur slide ini">↻ Reset</button>
+      <label><input type="checkbox" id="loopToggle" checked /> Loop</label>
+    </div>
+    <div class="progress-wrap">
+      <div class="progress-bar" aria-hidden="true"><div id="progress" class="progress"></div></div>
+      <div class="timers"><span id="statusText">Slide 1/10</span><span id="countdown">02:00</span></div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ======= KONTEN SLIDE DARI PENGGUNA (100 SOAL / 10 SLIDE) ======= -->
+
+    <h1 style="text-align: center; color: var(--brand);">100 SOAL PILIHAN GANDA PRAMUKA</h1>
+
+    <!-- SLIDE 1 -->
+<div class="slide">
+        <h2>📝 SLIDE 1 (Soal 1 - 10) - Sesuai Contoh Lampiran</h2>
+        <div class="grid-container">
+            <div class="column">
+                <div class="question">
+                    <strong>1. Boy Scout di ilhami oleh 2 organisasi yaitu...</strong>
+                    <ol class="options">
+                        <li>A. Sons of Danil Bone & Woodcraft Indian</li>
+                        <li>B. Son of Carter Beard & Woodcraft Indian's</li>
+                        <li>C. Sons of Daniel Boone & Woodcraft Indian</li>
+                        <li>D. Son of Carter Beard & Woodcraft Indian's</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>2. Organisasi internasional yang mengatur olahraga sepak bola adalah...</strong>/strong>
+                    <ol class="options">
+                        <li>A. FIBA</li>
+                        <li>B. FIFA</li>
+                        <li>C. IJF</li>
+                        <li>D. IVBF</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>3. Dimana letak biro kepanduan sedunia...</strong>sa muda disebut kegiatan yang...</strong>
+                    <ol class="options">
+                        <li>A. Kopenhagen, Denmark</li>
+                        <li>B. London, Inggris</li>
+                        <li>C. Jenewa, Switzerland</li>
+                        <li>D. Mafeking Afrika</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>4. Siapakah nama lengkap presiden ke-4 Republik Indonesia...</strong></strong>
+                    <ol class="options">
+                        <li>A. Susilo Bambang Yudhoyono</li>
+                        <li>B. KH. Abdurrahman Wahid</li>
+                        <li>C. B.J. Habibie</li>
+                        <li>D. Megawati Soekarnoputri</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>5. Motto Para Pandu adalah...</strong>>
+                    <ol class="options">
+                        <li>A. Be Prepare</li>
+                        <li>B. Be peprared</li>
+                        <li>C. be prepared</li>
+                        <li>D. Be Prepared</li>
+                    </ol>
+                </div>
+            </div>
+            <div class="column">
+                <div class="question">
+                    <strong>6. Makam Sunan Ampel berada di kota...</strong>
+                    <ol class="options">
+                        <li>A. Madura</li>
+                        <li>B. Surabaya</li>
+                        <li>C. Pasuruan</li>
+                        <li>D. Malang</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>7. Apakah organisasi kepanduan untuk putri...</strong>
+                    <ol class="options">
+                        <li>A. WAGGS</li>
+                        <li>B. WAAGS</li>
+                        <li>C. WAGGSS</li>
+                        <li>D. WAGGGS</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>8. Kerajaan Samudera Pasai merupakan kerajaan Islam pertama di Indonesia yang berdiri di daerah...</strong>
+                    <ol class="options">
+                        <li>A. Jawa Timur</li>
+                        <li>B. Kalimantan Timur</li>
+                        <li>C. Sumatra Utara</li>
+                        <li>D. Aceh</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>9. Kepanjangan dari WOSM adalah...</strong>
+                    <ol class="options">
+                        <li>A. World Organisation of the Scout Movement</li>
+                        <li>B. World Organization of the Scout Movement</li>
+                        <li>C. World Organization of Scout the Movement</li>
+                        <li>D. World Organisation of the Movement</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>10. Pendiri kerajaan samudra pasai adalah...</strong>tahun...</strong>
+                    <ol class="options">
+                        <li>A. Sultan Iskandar Muda</li>
+                        <li>B. Sultan Agung</li>
+                        <li>C. Sultan Malik al-salih</li>
+                        <li>D. Sultan Hasanuddin</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer">Soal 1-10 disalin sesuai lampiran contoh.</div>
+    </div>
+
+    <div class="slide">
+        <h2>📝 SLIDE 2 (Soal 11 - 20)</h2>
+        <div class="grid-container">
+            <div class="column">
+                <div class="question">
+                    <strong>11. Konferensi kepramukaan sedunia di Kopenhagen terjadi tahun...</strong> masyarakat secara berurutan adalah kewajiban ke-...</strong>
+                    <ol class="options">
+                        <li>A. 1920</li>
+                        <li>B. 1922</li>
+                        <li>C. 1924</li>
+                        <li>D. 1926</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>12. Sifat Kepramukaan diatur berdasarkan...</strong> setara dengan tingkatan Siaga...</strong>
+                    <ol class="options">
+                        <li>A. Resolusi Kopenhagen 1924</li>
+                        <li>B. Sumpah Pemuda</li>
+                        <li>C. AD & ART</li>
+                        <li>D. Keputusan Kwarnas</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>13. Kode Kehormatan Pramuka Janji disebut...</strong>trong>
+                    <ol class="options">
+                        <li>A. Dasa</li>
+                        <li>B. Darma</li>
+                        <li>C. Satya</li>
+                        <li>D. Tri</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>14. Ayah Baden-Powell merupakan guru besar...</strong>
+                    <ol class="options">
+                        <li>A. Fisika</li>
+                        <li>B. Astronomi</li>
+                        <li>C. Geometri</li>
+                        <li>D. Sejarah</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>15. Prof. Domine, ayah BP, wafat pada tanggal...</strong>...</strong>
+                    <ol class="options">
+                        <li>A. 22 Februari 1857</li>
+                        <li>B. 11 Juni 1860</li>
+                        <li>C. 13 Oktober 1899</li>
+                        <li>D. 21 Juni 1970</li>
+                    </ol>
+                </div>
+            </div>
+            <div class="column">
+                <div class="question">
+                    <strong>16. BP masuk Charterhouse School pada tahun...</strong>>
+                    <ol class="options">
+                        <li>A. 1860</li>
+                        <li>B. 1870</li>
+                        <li>C. 1880</li>
+                        <li>D. 1890</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>17. BP memimpin pertahanan Mafeking selama...</strong>
+                    <ol class="options">
+                        <li>A. 100 hari</li>
+                        <li>B. 150 hari</li>
+                        <li>C. 217 hari</li>
+                        <li>D. 365 hari</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>18. Pangkat BP naik menjadi Mayor Jendral setelah peristiwa...</strong>g>
+                    <ol class="options">
+                        <li>A. Perkemahan Brownsea</li>
+                        <li>B. Pengepungan Mafeking</li>
+                        <li>C. Lulus akademi militer</li>
+                        <li>D. Menulis Scouting for Boys</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>19. Raja Dinuzulu meninggal pada tahun...</strong>dan pengembangan...</strong>
+                    <ol class="options">
+                        <li>A. 1908</li>
+                        <li>B. 1913</li>
+                        <li>C. 1920</li>
+                        <li>D. 1924</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>20. Masa tua BP dihabiskan di negara...</strong>
+                    <ol class="options">
+                        <li>A. Inggris</li>
+                        <li>B. Afrika Selatan</li>
+                        <li>C. Kenya</li>
+                        <li>D. India</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer">Modul Scout Intelligent SMP/MTs - LOGIKA 7</div>
+    </div>
+
+    <div class="slide">
+        <h2>📝 SLIDE 3 (Soal 21 - 30)</h2>
+        <div class="grid-container">
+            <div class="column">
+                <div class="question">
+                    <strong>21. Buku "Rovering to Success" diterbitkan tahun...</strong>ni berdiri sekitar abad ke-...</strong>
+                    <ol class="options">
+                        <li>A. 1918</li>
+                        <li>B. 1920</li>
+                        <li>C. 1922</li>
+                        <li>D. 1924</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>22. Tempat bermain dan berlatih yang diberikan William F. DeBois Mc. Laren adalah...</strong>
+                    <ol class="options">
+                        <li>A. Mafeking</li>
+                        <li>B. Brownsea Island</li>
+                        <li>C. Gilwell Park</li>
+                        <li>D. Olimpia</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>23. Dewan Internasional (cikal bakal BKS) dibentuk pada tahun...</strong>?</strong>
+                    <ol class="options">
+                        <li>A. 1918</li>
+                        <li>B. 1920</li>
+                        <li>C. 1924</li>
+                        <li>D. 1958</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>24. Kantor pusat BKS dipindahkan ke Jenewa, Swiss, pada tanggal...</strong>
+                    <ol class="options">
+                        <li>A. 1 Mei 1951</li>
+                        <li>B. 1 Mei 1958</li>
+                        <li>C. 1 Mei 1959</li>
+                        <li>D. 1 Mei 1961</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>25. Organisasi WOSM didirikan pada tahun...</strong>
+                    <ol class="options">
+                        <li>A. 1918</li>
+                        <li>B. 1920</li>
+                        <li>C. 1922</li>
+                        <li>D. 1924</li>
+                    </ol>
+                </div>
+            </div>
+            <div class="column">
+                <div class="question">
+                    <strong>26. World Scout Conference (WSC) bertemu setiap...</strong>hasilan...</strong>
+                    <ol class="options">
+                        <li>A. 1 tahun sekali</li>
+                        <li>B. 2 tahun sekali</li>
+                        <li>C. 3 tahun sekali</li>
+                        <li>D. 4 tahun sekali</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>27. JPO (organisasi kepanduan nasional pertama) didirikan di...</strong> (*Champa*), yang merupakan pendiri pertama kerajaan-kerajaan di Aceh...</strong>
+                    <ol class="options">
+                        <li>A. Jakarta</li>
+                        <li>B. Surabaya</li>
+                        <li>C. Surakarta</li>
+                        <li>D. Yogyakarta</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>28. Indonesia pertama kali ikut Jambore Dunia pada tahun...</strong>
+                    <ol class="options">
+                        <li>A. 1934</li>
+                        <li>B. 1937</li>
+                        <li>C. 1947</li>
+                        <li>D. 1955</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>29. Jamnas (Jambore Nasional) pertama masa Pramuka (setelah Keppres) dilaksanakan di Situ Baru tahun...</strong>trong>
+                    <ol class="options">
+                        <li>A. 1970</li>
+                        <li>B. 1973</li>
+                        <li>C. 1977</li>
+                        <li>D. 1981</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>30. Kiasan dasar Siaga ditandai dengan Hari...</strong>
+                    <ol class="options">
+                        <li>A. Sumpah Pemuda</li>
+                        <li>B. Kebangkitan Nasional</li>
+                        <li>C. Proklamasi</li>
+                        <li>D. Hari Pramuka</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer">Modul Scout Intelligent SMP/MTs - LOGIKA 7</div>
+    </div>
+
+    <div class="slide">
+        <h2>📝 SLIDE 4 (Soal 31 - 40)</h2>
+        <div class="grid-container">
+            <div class="column">
+                <div class="question">
+                    <strong>31. Kiasan dasar *Pembina* berarti...</strong>
+                    <ol class="options">
+                        <li>A. Mengelola pembangunan</li>
+                        <li>B. Membina Bangsa dan Negara</li>
+                        <li>C. Menggalang persatuan</li>
+                        <li>D. Pimpinan yang diandalkan</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>32. Golongan Pramuka yang hanya terdiri dari 1 tingkatan (Pandega) adalah...</strong>
+                    <ol class="options">
+                        <li>A. Penegak</li>
+                        <li>B. Pandega</li>
+                        <li>C. Pembina</li>
+                        <li>D. Siaga</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>33. Cara pelaksanaan pendidikan di Gerakan Pramuka disebut...</strong>
+                    <ol class="options">
+                        <li>A. Metode Kepramukaan</li>
+                        <li>B. Sistem Among</li>
+                        <li>C. Kiasan Dasar</li>
+                        <li>D. Trisatya</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>34. Lambang Gerakan Pramuka adalah karya dari...</strong>ng>
+                    <ol class="options">
+                        <li>A. Ki Hajar Dewantara</li>
+                        <li>B. Ir. Soekarno</li>
+                        <li>C. R. Soenardjo Atmodipoerwo</li>
+                        <li>D. KH. Agus Salim</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>35. BP lahir pada tahun...</strong>
+                    <ol class="options">
+                        <li>A. 1856</li>
+                        <li>B. 1857</li>
+                        <li>C. 1859</li>
+                        <li>D. 1876</li>
+                    </ol>
+                </div>
+            </div>
+            <div class="column">
+                <div class="question">
+                    <strong>36. BP menikah pada tahun...</strong>
+                    <ol class="options">
+                        <li>A. 1908</li>
+                        <li>B. 1910</li>
+                        <li>C. 1912</li>
+                        <li>D. 1920</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>37. BP mengunjungi Batavia pada tanggal...</strong>
+                    <ol class="options">
+                        <li>A. 3 Desember 1930</li>
+                        <li>B. 3 Desember 1934</li>
+                        <li>C. 3 Desember 1935</li>
+                        <li>D. 3 Desember 1945</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>38. Saka Wana Bakti adalah bidang...</strong>
+                    <ol class="options">
+                        <li>A. Pertanian</li>
+                        <li>B. Kehutanan</li>
+                        <li>C. Kependudukan</li>
+                        <li>D. Bela Negara</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>39. Saka Bakti Husada adalah bidang...</strong>
+                    <ol class="options">
+                        <li>A. Kepolisian</li>
+                        <li>B. Keudaraan</li>
+                        <li>C. Kesehatan</li>
+                        <li>D. Kelautan</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>40. Saka Kencana adalah bidang...</strong>
+                    <ol class="options">
+                        <li>A. Kehutanan</li>
+                        <li>B. Kependudukan</li>
+                        <li>C. Kepolisian</li>
+                        <li>D. Pertanian</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer">Modul Scout Intelligent SMP/MTs - LOGIKA 7</div>
+    </div>
+
+    <div class="slide">
+        <h2>📝 SLIDE 5 (Soal 41 - 50)</h2>
+        <div class="grid-container">
+            <div class="column">
+                <div class="question">
+                    <strong>41. Saka Taruna Bumi adalah bidang...</strong>
+                    <ol class="options">
+                        <li>A. Kehutanan</li>
+                        <li>B. Kepolisian</li>
+                        <li>C. Pertanian</li>
+                        <li>D. Bela Negara</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>42. Saka Wira Kartika adalah bidang...</strong>
+                    <ol class="options">
+                        <li>A. Keudaraan</li>
+                        <li>B. Kelautan</li>
+                        <li>C. Bela Negara</li>
+                        <li>D. Kesehatan</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>43. Bentuk TKK Purwa, Madya, Utama secara berurutan adalah...</strong>
+                    <ol class="options">
+                        <li>A. Kotak, lingkaran, segi lima</li>
+                        <li>B. Lingkaran, persegi, segi lima</li>
+                        <li>C. Lingkaran, kotak, segi lima</li>
+                        <li>D. Segitiga, lingkaran, kotak</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>44. TKK wajib yang tercantum dalam modul, kecuali...</strong>
+                    <ol class="options">
+                        <li>A. TKK Berkemah</li>
+                        <li>B. TKK Juru Masak</li>
+                        <li>C. TKK Juru Bahasa</li>
+                        <li>D. TKK Penabung</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>45. Pertemuan Pramuka golongan Siaga adalah...</strong>
+                    <ol class="options">
+                        <li>A. Jambore</li>
+                        <li>B. Raimuna</li>
+                        <li>C. Pesta Siaga</li>
+                        <li>D. Lomba Tingkat</li>
+                    </ol>
+                </div>
+            </div>
+            <div class="column">
+                <div class="question">
+                    <strong>46. Kemampuan seseorang untuk mempengaruhi dan menggiatkan orang lain mencapai tujuan disebut...</strong>
+                    <ol class="options">
+                        <li>A. Komunikasi</li>
+                        <li>B. Administrasi</li>
+                        <li>C. Kepemimpinan</li>
+                        <li>D. Instruksi</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>47. Pemimpin yang berkuasa penuh atas segala hal dalam kelompok disebut tipe...</strong>
+                    <ol class="options">
+                        <li>A. Demokratis</li>
+                        <li>B. Otoriter</li>
+                        <li>C. Paternalitis</li>
+                        <li>D. Pribadi</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>48. Jambore Dunia Pertama dilaksanakan di...</strong>
+                    <ol class="options">
+                        <li>A. Denmark</li>
+                        <li>B. Arrow Park</li>
+                        <li>C. Sutton Park</li>
+                        <li>D. Olimpia London Inggris</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>49. Jambore Dunia ke-3 dilaksanakan pada tahun...</strong>
+                    <ol class="options">
+                        <li>A. 1920</li>
+                        <li>B. 1924</li>
+                        <li>C. 1929</li>
+                        <li>D. 1933</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>50. Jambore Dunia ke-9 dilaksanakan di...</strong>
+                    <ol class="options">
+                        <li>A. Maraton Yunani</li>
+                        <li>B. Makiling Filipina</li>
+                        <li>C. Sutton Park</li>
+                        <li>D. Nouveaux Kanada</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer">Modul Scout Intelligent SMP/MTs - LOGIKA 7</div>
+    </div>
+
+    <div class="slide">
+        <h2>📝 SLIDE 6 (Soal 51 - 60)</h2>
+        <div class="grid-container">
+            <div class="column">
+                <div class="question">
+                    <strong>51. Penyelenggaraan Jambore dibatalkan (1939-1947) karena...</strong>
+                    <ol class="options">
+                        <li>A. Perang Dunia I</li>
+                        <li>B. Perang Dunia II</li>
+                        <li>C. Revolusi Iran</li>
+                        <li>D. Baden Powell wafat</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>52. Jambore ke-15 dibatalkan karena...</strong>
+                    <ol class="options">
+                        <li>A. Perang Dunia II</li>
+                        <li>B. Revolusi Iran</li>
+                        <li>C. Raja sakit</li>
+                        <li>D. Krisis moneter</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>53. Jamnas ke-6 (1996) dilaksanakan di...</strong>
+                    <ol class="options">
+                        <li>A. Baturaden</li>
+                        <li>B. Jatinangor</li>
+                        <li>C. Cibubur DKI Jakarta</li>
+                        <li>D. Teluk Gelam</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>54. *Eagle Scout* adalah istilah Inggris untuk...</strong>
+                    <ol class="options">
+                        <li>A. Penegak</li>
+                        <li>B. Pembina</li>
+                        <li>C. Pramuka Garuda</li>
+                        <li>D. Pimpinan Regu</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>55. *Girl Guide* adalah istilah Inggris untuk...</strong>
+                    <ol class="options">
+                        <li>A. Siaga Putri</li>
+                        <li>B. Penggalang Putri</li>
+                        <li>C. Penegak Putri</li>
+                        <li>D. Pandega Putri</li>
+                    </ol>
+                </div>
+            </div>
+            <div class="column">
+                <div class="question">
+                    <strong>56. Hari Kebangkitan Nasional jatuh pada tanggal...</strong>nggalang...</strong>
+                    <ol class="options">
+                        <li>A. 28 Oktober 1928</li>
+                        <li>B. 17 Agustus 1945</li>
+                        <li>C. 20 Mei 1908</li>
+                        <li>D. 14 Agustus 1961</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>57. Jambore Dunia ke-7 dilaksanakan di...</strong>...</strong>
+                    <ol class="options">
+                        <li>A. Moisson Prancis</li>
+                        <li>B. Salz Kamergut Austria</li>
+                        <li>C. Volegenzang Belanda</li>
+                        <li>D. Arrow Park Inggris</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>58. Jambore Dunia ke-23 (2015) dilaksanakan di...</strong>
+                    <ol class="options">
+                        <li>A. Inggris</li>
+                        <li>B. Korea Selatan</li>
+                        <li>C. Jepang</li>
+                        <li>D. Swedia</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>59. Jambore Dunia ke-13 dilaksanakan di...</strong> anggota adalah sifat...</strong>
+                    <ol class="options">
+                        <li>A. Yunani</li>
+                        <li>B. Kanada</li>
+                        <li>C. Jepang</li>
+                        <li>D. Amerika Serikat</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>60. Tingkatan Bantara dan Laksana dimiliki golongan...</strong>
+                    <ol class="options">
+                        <li>A. Penggalang</li>
+                        <li>B. Penegak</li>
+                        <li>C. Pandega</li>
+                        <li>D. Pembina</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer">Modul Scout Intelligent SMP/MTs - LOGIKA 7</div>
+    </div>
+
+    <div class="slide">
+        <h2>📝 SLIDE 7 (Soal 61 - 70)</h2>
+        <div class="grid-container">
+            <div class="column">
+                <div class="question">
+                    <strong>61. Jamnas ke-9 (2011) dilaksanakan di...</strong>
+                    <ol class="options">
+                        <li>A. Jawa Tengah</li>
+                        <li>B. Jawa Barat</li>
+                        <li>C. Sumatera Selatan</li>
+                        <li>D. DKI Jakarta</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>62. Kerajaan Hindu tertua di Nusantara dibuktikan dengan Prasasti...</strong>
+                    <ol class="options">
+                        <li>A. Kedukan Bukit</li>
+                        <li>B. Yupa</li>
+                        <li>C. Talang Tuo</li>
+                        <li>D. Ciaruteun</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>63. Kerajaan Kutai bercorak...</strong>
+                    <ol class="options">
+                        <li>A. Islam</li>
+                        <li>B. Buddha</li>
+                        <li>C. Hindu</li>
+                        <li>D. Kristen</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>64. Maharaja Aswawarman adalah raja dari Kerajaan...</strong>
+                    <ol class="options">
+                        <li>A. Samudra Pasai</li>
+                        <li>B. Banten</li>
+                        <li>C. Majapahit</li>
+                        <li>D. Kutai</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>65. Kerajaan Kutai terletak di Muara Kaman, Provinsi...</strong>rsatuan dan membangun?</strong>
+                    <ol class="options">
+                        <li>A. Kalimantan Barat</li>
+                        <li>B. Kalimantan Tengah</li>
+                        <li>C. Kalimantan Selatan</li>
+                        <li>D. Kalimantan Timur</li>
+                    </ol>
+                </div>
+            </div>
+            <div class="column">
+                <div class="question">
+                    <strong>66. Kerajaan Kutai berdiri sekitar abad ke-...</strong>
+                    <ol class="options">
+                        <li>A. 1</li>
+                        <li>B. 3</li>
+                        <li>C. 4</li>
+                        <li>D. 7</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>67. Nama lain Kesultanan Pasai adalah...</strong>
+                    <ol class="options">
+                        <li>A. Brunei Darussalam</li>
+                        <li>B. Samudera Darussalam</li>
+                        <li>C. Aceh Darussalam</li>
+                        <li>D. Sriwijaya</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>68. Pendiri Kerajaan Samudra Pasai adalah...</strong>>
+                    <ol class="options">
+                        <li>A. Sultan Zainal Abidin</li>
+                        <li>B. Maulana Hasanuddin</li>
+                        <li>C. Malik Al Salih</li>
+                        <li>D. Sultan Agung</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>69. Kerajaan Samudra Pasai mencapai puncak kejayaan pada masa Sultan...</strong>ong>
+                    <ol class="options">
+                        <li>A. Malik Al Salih</li>
+                        <li>B. Zainal Abidin II</li>
+                        <li>C. Alauddin Riayat Shah</li>
+                        <li>D. Iskandar Muda</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>70. Kerajaan Islam di Provinsi Banten berdiri sejak tahun...</strong>
+                    <ol class="options">
+                        <li>A. 1522</li>
+                        <li>B. 1526</li>
+                        <li>C. 1566</li>
+                        <li>D. 1570</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer">Modul Scout Intelligent SMP/MTs - LOGIKA 7</div>
+    </div>
+
+    <div class="slide">
+        <h2>📝 SLIDE 8 (Soal 71 - 80)</h2>
+        <div class="grid-container">
+            <div class="column">
+                <div class="question">
+                    <strong>71. Kerajaan Samudra Pasai didirikan pada tahun...</strong>
+                    <ol class="options">
+                        <li>A. 1267</li>
+                        <li>B. 1276</li>
+                        <li>C. 1438</li>
+                        <li>D. 1526</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>72. Sultan Zainal Abidin II adalah Sultan Samudra Pasai ke-...</strong>rang-karang ini yang disebutkan dalam *Rovering To Success*?</strong>
+                    <ol class="options">
+                        <li>A. 3</li>
+                        <li>B. 5</li>
+                        <li>C. 7</li>
+                        <li>D. 9</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>73. Pendiri Kesultanan Banten adalah...</strong>
+                    <ol class="options">
+                        <li>A. Maulana Yusuf</li>
+                        <li>B. Sultan Zainal Abidin</li>
+                        <li>C. Maulana Hasanudin</li>
+                        <li>D. Malik Al Saleh</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>74. Nama lain Maulana Yusuf adalah Pangeran...</strong>
+                    <ol class="options">
+                        <li>A. Sabakingkin</li>
+                        <li>B. Pasarean</li>
+                        <li>C. Pasai</li>
+                        <li>D. Tarumanegara</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>75. Maulana Hasanudin berkuasa di Banten dari tahun...</strong>
+                    <ol class="options">
+                        <li>A. 1526-1552</li>
+                        <li>B. 1552-1570</li>
+                        <li>C. 1570-1585</li>
+                        <li>D. 1585-1600</li>
+                    </ol>
+                </div>
+            </div>
+            <div class="column">
+                <div class="question">
+                    <strong>76. Makam Raja Mataram berada di...</strong>
+                    <ol class="options">
+                        <li>A. Mataram</li>
+                        <li>B. Demak</li>
+                        <li>C. Imogiri</li>
+                        <li>D. Banten</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>77. Makam Sunan Giri berada di kota...</strong> pemuda?</strong>
+                    <ol class="options">
+                        <li>A. Demak</li>
+                        <li>B. Surabaya</li>
+                        <li>C. Gresik</li>
+                        <li>D. Imogiri</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>78. Benteng Inang Bale terletak di...</strong>
+                    <ol class="options">
+                        <li>A. Banten</li>
+                        <li>B. Bali</li>
+                        <li>C. Aceh</li>
+                        <li>D. Maluku</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>79. Benteng Bonjol terletak di...</strong>
+                    <ol class="options">
+                        <li>A. Sumatera Utara</li>
+                        <li>B. Sumatera Barat</li>
+                        <li>C. Sumatera Selatan</li>
+                        <li>D. Sumatera Timur</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>80. Benteng Jagaraga terletak di...</strong>
+                    <ol class="options">
+                        <li>A. Aceh</li>
+                        <li>B. Banten</li>
+                        <li>C. Bali</li>
+                        <li>D. Maluku</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer">Modul Scout Intelligent SMP/MTs - LOGIKA 7</div>
+    </div>
+
+    <div class="slide">
+        <h2>📝 SLIDE 9 (Soal 81 - 90)</h2>
+        <div class="grid-container">
+            <div class="column">
+                <div class="question">
+                    <strong>81. Benteng Duurstede terletak di...</strong>
+                    <ol class="options">
+                        <li>A. Aceh</li>
+                        <li>B. Banten</li>
+                        <li>C. Bali</li>
+                        <li>D. Maluku</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>82. Benteng Surasan terletak di...</strong>as No....</strong>
+                    <ol class="options">
+                        <li>A. Aceh</li>
+                        <li>B. Banten</li>
+                        <li>C. Bali</li>
+                        <li>D. Maluku</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>83. IJF adalah organisasi untuk olahraga...</strong>
+                    <ol class="options">
+                        <li>A. Berkuda</li>
+                        <li>B. Voli</li>
+                        <li>C. Judo</li>
+                        <li>D. Basket</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>84. IHF adalah organisasi untuk olahraga...</strong> poin ini yang merupakan salah satu dari 8 Metode Kepramukaan?</strong>
+                    <ol class="options">
+                        <li>A. Tenis Meja</li>
+                        <li>B. Bola Tangan</li>
+                        <li>C. Basket</li>
+                        <li>D. Judo</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>85. FOTA adalah organisasi untuk olahraga...</strong>
+                    <ol class="options">
+                        <li>A. Aerobik</li>
+                        <li>B. Mobil Formula 1</li>
+                        <li>C. Bersepeda</li>
+                        <li>D. Judo</li>
+                    </ol>
+                </div>
+            </div>
+            <div class="column">
+                <div class="question">
+                    <strong>86. Ir. Soekarno meninggal pada usia...</strong>
+                    <ol class="options">
+                        <li>A. 70 tahun</li>
+                        <li>B. 69 tahun</li>
+                        <li>C. 68 tahun</li>
+                        <li>D. 65 tahun</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>87. Prabowo Subianto lahir pada...</strong>
+                    <ol class="options">
+                        <li>A. 17 Oktober 1950</li>
+                        <li>B. 17 Oktober 1951</li>
+                        <li>C. 18 Oktober 1952</li>
+                        <li>D. 18 Oktober 1951</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>88. SBY lahir pada tanggal...</strong>
+                    <ol class="options">
+                        <li>A. 9 Juli 1949</li>
+                        <li>B. 9 September 1949</li>
+                        <li>C. 9 Oktober 1949</li>
+                        <li>D. 19 Desember 1949</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>89. Prabowo Subianto lahir di...</strong>
+                    <ol class="options">
+                        <li>A. Surakarta</li>
+                        <li>B. Purwokerto</li>
+                        <li>C. Jakarta</li>
+                        <li>D. Tangerang</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>90. Soeharto lahir di Dusun Kemusuk, Desa Argomulyo, Bantul, Provinsi...</strong>ajiban ke-...</strong>
+                    <ol class="options">
+                        <li>A. Jakarta</li>
+                        <li>B. Yogyakarta</li>
+                        <li>C. Jawa Tengah</li>
+                        <li>D. Jawa Timur</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer">Modul Scout Intelligent SMP/MTs - LOGIKA 7</div>
+    </div>
+
+    <div class="slide">
+        <h2>📝 SLIDE 10 (Soal 91 - 100)</h2>
+        <div class="grid-container">
+            <div class="column">
+                <div class="question">
+                    <strong>91. Gus Dur menjadi Presiden RI selama...</strong>
+                    <ol class="options">
+                        <li>A. 2 tahun</li>
+                        <li>B. 3 tahun</li>
+                        <li>C. 4 tahun</li>
+                        <li>D. 5 tahun</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>92. Jokowi menjabat Gubernur DKI Jakarta pada tahun...</strong>
+                    <ol class="options">
+                        <li>A. 2005</li>
+                        <li>B. 2012</li>
+                        <li>C. 2014</li>
+                        <li>D. 2019</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>93. Megawati adalah putri dari Presiden ke-...</strong>
+                    <ol class="options">
+                        <li>A. 1</li>
+                        <li>B. 2</li>
+                        <li>C. 3</li>
+                        <li>D. 4</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>94. BJ Habibie lahir di Sulawesi Selatan pada tanggal...</strong>
+                    <ol class="options">
+                        <li>A. 25 Juli 1936</li>
+                        <li>B. 25 Juni 1936</li>
+                        <li>C. 25 Juli 1938</li>
+                        <li>D. 25 Juni 1938</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>95. BJ Habibie menunjukkan kecerdasan pada ilmu pengetahuan dan teknologi, khususnya...</strong>
+                    <ol class="options">
+                        <li>A. Kimia</li>
+                        <li>B. Biologi</li>
+                        <li>C. Fisika</li>
+                        <li>D. Matematika</li>
+                    </ol>
+                </div>
+            </div>
+            <div class="column">
+                <div class="question">
+                    <strong>96. Presiden RI yang menjabat setelah Sidang Istimewa MPR 2001 adalah...</strong>
+                    <ol class="options">
+                        <li>A. KH. Abdurrahman Wahid</li>
+                        <li>B. Megawati Soekarnoputri</li>
+                        <li>C. SBY</li>
+                        <li>D. BJ Habibie</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>97. Julukan "The Smiling General" diberikan kepada Presiden ke-...</strong>
+                    <ol class="options">
+                        <li>A. 1</li>
+                        <li>B. 2</li>
+                        <li>C. 3</li>
+                        <li>D. 4</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>98. Gus Dur meninggal pada...</strong>>
+                    <ol class="options">
+                        <li>A. 7 September 1940</li>
+                        <li>B. 30 Desember 2009</li>
+                        <li>C. 30 Desember 2008</li>
+                        <li>D. 27 Januari 2008</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>99. Presiden RI ke-6 adalah...</strong>
+                    <ol class="options">
+                        <li>A. BJ Habibie</li>
+                        <li>B. Abdurrahman Wahid</li>
+                        <li>C. Susilo Bambang Yudhoyono</li>
+                        <li>D. Joko Widodo</li>
+                    </ol>
+                </div>
+                <div class="question">
+                    <strong>100. Presiden pertama yang menyelesaikan masa jabatan 5 tahun penuh pasca-reformasi adalah...</strong>
+                    <ol class="options">
+                        <li>A. Megawati Soekarnoputri</li>
+                        <li>B. KH. Abdurrahman Wahid</li>
+                        <li>C. Susilo Bambang Yudhoyono</li>
+                        <li>D. Joko Widodo</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+        <div class="slide-footer">Modul Scout Intelligent SMP/MTs - LOGIKA 7</div>
+    </div>
+
+  </main>
+
+  <footer>
+    <div class="foot">
+      Gunakan tombol <b>Jeda/Putar</b> untuk kontrol otomatis. Tekan <kbd>←</kbd>/<kbd>→</kbd> untuk pindah slide. <span id="footHint"></span>
+    </div>
+  </footer>
+
+  <script>
+    // ====== Slideshow logic ======
+    const slides = Array.from(document.querySelectorAll('.slide'));
+    let current = 0;
+    let duration = 120; // detik
+    let startTs = null;
+    let rafId = null;
+    let playing = true;
+    let loop = true;
+
+    const progressEl = document.getElementById('progress');
+    const countdownEl = document.getElementById('countdown');
+    const statusText = document.getElementById('statusText');
+    const prevBtn = document.getElementById('prevBtn');
+    const nextBtn = document.getElementById('nextBtn');
+    const playPauseBtn = document.getElementById('playPauseBtn');
+    const slideSelect = document.getElementById('slideSelect');
+    const durationInput = document.getElementById('durationInput');
+    const resetTimerBtn = document.getElementById('resetTimerBtn');
+    const loopToggle = document.getElementById('loopToggle');
+
+    // Populate slide selector
+    slides.forEach((_, i) => {
+      const opt = document.createElement('option');
+      opt.value = i;
+      opt.textContent = `Slide ${i+1}`;
+      slideSelect.appendChild(opt);
+    });
+
+    function showSlide(index, {resetTimer=true} = {}){
+      if(index < 0) index = 0;
+      if(index >= slides.length) index = slides.length - 1;
+      slides.forEach((el,i)=> el.classList.toggle('active', i===index));
+      current = index;
+      statusText.textContent = `Slide ${index+1}/${slides.length}`;
+      slideSelect.value = String(index);
+      if(resetTimer){
+        startTs = performance.now();
+      }
+      updateButtons();
+    }
+
+    function updateButtons(){
+      prevBtn.disabled = (current===0 && !loop);
+      nextBtn.disabled = (current===slides.length-1 && !loop);
+      playPauseBtn.textContent = playing ? '⏸ Jeda' : '▶️ Putar';
+    }
+
+    function formatTime(sec){
+      sec = Math.max(0, Math.ceil(sec));
+      const m = String(Math.floor(sec/60)).padStart(2,'0');
+      const s = String(sec%60).padStart(2,'0');
+      return `${m}:${s}`;
+    }
+
+    function tick(now){
+      if(!startTs) startTs = now;
+      const elapsed = (now - startTs)/1000;
+      const remain = duration - elapsed;
+      const pct = Math.min(100, Math.max(0, (elapsed/duration)*100));
+      progressEl.style.width = pct + '%';
+      countdownEl.textContent = formatTime(remain);
+
+      if(playing){
+        if(remain <= 0){
+          // advance
+          let nextIndex = current + 1;
+          if(nextIndex >= slides.length){
+            if(loop){ nextIndex = 0; }
+            else { playing = false; updateButtons(); cancelAnimationFrame(rafId); return; }
+          }
+          showSlide(nextIndex, {resetTimer:true});
+        }
+        rafId = requestAnimationFrame(tick);
+      }
+    }
+
+    // Controls
+    prevBtn.addEventListener('click', ()=>{
+      const prevIndex = current-1 < 0 ? (loop? slides.length-1 : 0) : current-1;
+      showSlide(prevIndex);
+    });
+    nextBtn.addEventListener('click', ()=>{
+      const nextIndex = current+1 >= slides.length ? (loop? 0 : slides.length-1) : current+1;
+      showSlide(nextIndex);
+    });
+    playPauseBtn.addEventListener('click', ()=>{
+      playing = !playing;
+      updateButtons();
+      if(playing){ startTs = performance.now(); tick(startTs); }
+      else { cancelAnimationFrame(rafId); }
+    });
+    slideSelect.addEventListener('change', (e)=>{
+      showSlide(parseInt(e.target.value,10));
+    });
+    durationInput.addEventListener('input', ()=>{
+      const v = Math.max(10, parseInt(durationInput.value||'120',10));
+      duration = v;
+      startTs = performance.now();
+    });
+    resetTimerBtn.addEventListener('click', ()=>{ startTs = performance.now(); });
+    loopToggle.addEventListener('change', ()=>{ loop = loopToggle.checked; updateButtons(); });
+
+    // Keyboard shortcuts
+    window.addEventListener('keydown', (e)=>{
+      if(e.key === 'ArrowRight') { nextBtn.click(); }
+      if(e.key === 'ArrowLeft')  { prevBtn.click(); }
+      if(e.key === ' ') { e.preventDefault(); playPauseBtn.click(); }
+    });
+
+    // Init
+    showSlide(0);
+    startTs = performance.now();
+    tick(startTs);
+  </script>
+</body>
+</html>
